@@ -1,18 +1,30 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
-import { useRoute } from "vue-router";
-import { getCocktail } from "./api.ts";
-import { useStore } from "./useStore.ts";
+import { useRoute, useRouter } from "vue-router";
+import { getCocktail } from "@/api.ts";
+import { useStore } from "@/useStore.ts";
+import cocktailsList from "@/cocktailsList";
 
 const store = useStore();
 const route = useRoute();
+const router = useRouter();
 
-watch(() => route.params.id, fetchData, { immediate: true });
+watch(
+  () => route.params.id,
+  async (newId, oldId) => {
+    if (newId === oldId) return;
 
-async function fetchData(id: string | string[]) {
-  store.fetchCocktail(typeof id === "string" ? id : id[0]);
-}
+    const cocktailId = typeof newId === "string" ? newId : newId?.[0];
+    if (!cocktailsList.includes(cocktailId)) {
+      router.push("/404");
+      return;
+    }
+    store.fetchCocktail(cocktailId);
+  },
+  { immediate: true },
+);
 </script>
+
 <template>
   <div v-if="store.loading" class="loading">Loading...</div>
 

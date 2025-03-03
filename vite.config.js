@@ -1,15 +1,19 @@
-import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
-import checker from 'vite-plugin-checker';
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import checker from "vite-plugin-checker";
 
 export default defineConfig({
-  plugins: [
-    vue(),
-    checker({ vueTsc: true  }),
-  ],
+  plugins: [vue(), checker({ vueTsc: true })],
   resolve: {
     alias: {
-      '@': '/src',
+      "@": "/src",
+    },
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@use "/src/style.scss";`,
+      },
     },
   },
 });

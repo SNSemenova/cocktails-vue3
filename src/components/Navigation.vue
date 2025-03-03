@@ -15,7 +15,7 @@ import cocktailsList from "@/cocktailsList";
   </nav>
 </template>
 
-<style>
+<style lang="scss">
 nav {
   width: 200px;
   display: flex;
@@ -26,7 +26,7 @@ nav {
 .nav-link {
   text-transform: capitalize;
   text-decoration: none;
-  color: #000000;
+  color: var(--font-color);
   padding: 8px 16px;
 }
 .router-link-active {
