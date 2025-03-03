@@ -4,6 +4,7 @@ import { useRoute, useRouter } from "vue-router";
 import { getCocktail } from "@/api.ts";
 import { useStore } from "@/useStore.ts";
 import cocktailsList from "@/cocktailsList";
+import DrinkView from "@/components/DrinkView.vue";
 
 const store = useStore();
 const route = useRoute();
@@ -32,10 +33,10 @@ watch(
 
   <div v-if="store.drinks.length">
     <h1>Cocktail {{ $route.params.id }}</h1>
-    <div v-for="drink in store.drinks" :key="drink.idDrink">
-      <h2>{{ drink.strDrink }}</h2>
-      <img :src="drink.strDrinkThumb" :alt="drink.strDrink" />
-      <p>{{ drink.strInstructions }}</p>
-    </div>
+    <DrinkView
+      v-for="drink in store.drinks"
+      :key="drink.idDrink"
+      :drink="drink"
+    />
   </div>
 </template>

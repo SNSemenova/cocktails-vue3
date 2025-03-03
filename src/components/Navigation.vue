@@ -1,9 +1,10 @@
 <script setup lang="ts">
+import Menu from "@/components/Menu.vue";
 import cocktailsList from "@/cocktailsList";
 </script>
 
 <template>
-  <nav>
+  <Menu>
     <RouterLink
       v-for="cocktail in cocktailsList"
       :key="cocktail"
@@ -12,17 +13,10 @@ import cocktailsList from "@/cocktailsList";
     >
       {{ cocktail }}
     </RouterLink>
-  </nav>
+  </Menu>
 </template>
 
 <style lang="scss">
-nav {
-  width: 200px;
-  display: flex;
-  flex-direction: column;
-  border-right: 1px solid #000000;
-  padding: 24px 0;
-}
 .nav-link {
   text-transform: capitalize;
   text-decoration: none;

@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { getCocktail } from "./api";
+import type { Drink } from "./types/drink";
 
 export const useStore = defineStore("cocktails", {
   state: () => ({
@@ -15,7 +16,6 @@ export const useStore = defineStore("cocktails", {
       try {
         const data = await getCocktail(id);
         this.drinks = data.drinks;
-        // TODO: 404 error if no drinks
       } catch (error) {
         this.error = true;
       }
@@ -23,10 +23,3 @@ export const useStore = defineStore("cocktails", {
     },
   },
 });
-
-interface Drink {
-  idDrink: string;
-  strDrink: string;
-  strDrinkThumb: string;
-  strInstructions: string;
-}

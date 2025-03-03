@@ -19,6 +19,6 @@ body {
 }
 main {
   flex: 1;
-  padding: 24px 16px;
+  padding: 32px 16px;
 }
 </style>
