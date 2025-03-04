@@ -6,4 +6,6 @@ export interface Drink {
   strCategory: string;
   strAlcoholic: string;
   strGlass: string;
+  [key: `strIngredient${number}`]: string | null;
+  [key: `strMeasure${number}`]: string | null;
 }

@@ -17,6 +17,7 @@ export const useStore = defineStore("cocktails", {
         const data = await getCocktail(id);
         this.drinks = data.drinks;
       } catch (error) {
+        console.error(error);
         this.error = true;
       }
       this.loading = false;

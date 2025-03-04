@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import { getCocktail } from "@/api.ts";
 import { useStore } from "@/useStore.ts";
 import cocktailsList from "@/cocktailsList";
 import DrinkView from "@/components/DrinkView.vue";
@@ -31,7 +30,7 @@ watch(
 
   <div v-if="store.error" class="error">Something went wrong</div>
 
-  <div v-if="store.drinks.length">
+  <div v-if="store.drinks.length" class="cocktail-page">
     <h1>Cocktail {{ $route.params.id }}</h1>
     <DrinkView
       v-for="drink in store.drinks"
@@ -40,3 +39,10 @@ watch(
     />
   </div>
 </template>
+
+<style>
+.cocktail-page {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+</style>

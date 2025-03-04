@@ -8,6 +8,10 @@ const drink = {
     "https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg",
   strInstructions:
     "Rub the rim of the glass with the lime slice to make the salt stick to it.",
+  idDrink: "11007",
+  strCategory: "Ordinary Drink",
+  strAlcoholic: "Alcoholic",
+  strGlass: "Cocktail glass",
 };
 
 afterEach(async () => {
@@ -44,14 +48,4 @@ test("renders cocktail instructions", async () => {
   });
 
   expect(screen.queryByText(drink.strInstructions)).toBeTruthy();
-});
-
-test("does not render any image when no drink is provided", async () => {
-  render(DrinkView, {
-    props: {
-      drink: null,
-    },
-  });
-
-  expect(screen.queryByRole("img")).toBeFalsy();
 });

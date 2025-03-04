@@ -17,7 +17,7 @@ watch(
   <nav class="sidebar">
     <slot />
   </nav>
-  <button @click="isOpen = !isOpen" class="menu-button">☰ Menu</button>
+  <button class="menu-button" @click="isOpen = !isOpen">☰ Menu</button>
   <div v-if="isOpen" class="dropdown-menu">
     <slot />
   </div>
@@ -28,7 +28,7 @@ watch(
   width: 200px;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid #000000;
+  background: #ffffff;
   padding: 24px 0;
 }
 
@@ -38,7 +38,7 @@ watch(
   top: 15px;
   left: 15px;
   padding: 10px 15px;
-  background: #f5f5f5;
+  background: #ffffff;
   border: none;
   border-radius: 4px;
   cursor: pointer;

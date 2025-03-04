@@ -25,5 +25,6 @@ import cocktailsList from "@/cocktailsList";
 }
 .router-link-active {
   background: #dedede;
+  font-weight: bold;
 }
 </style>
