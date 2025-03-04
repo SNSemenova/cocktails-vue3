@@ -7,7 +7,6 @@ import { useRoute } from "vue-router";
 watch(
   () => route.path,
   () => {
-    console.log("route changed");
     isOpen.value = false;
   },
   { immediate: true },

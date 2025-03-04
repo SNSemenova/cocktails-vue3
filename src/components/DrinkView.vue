@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { defineProps } from "vue";
 import type { Drink } from "@/types/drink.ts";
 const props = defineProps({
   drink: {
@@ -15,7 +14,7 @@ const drinkAttributes: Array<keyof Drink> = [
 </script>
 
 <template>
-  <div class="drink-view">
+  <div class="drink-view" v-if="drink">
     <div class="drink-view__info">
       <h2>{{ drink.strDrink }}</h2>
       <div>
